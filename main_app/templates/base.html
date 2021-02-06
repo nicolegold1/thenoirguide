@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>The Noir Guide</title>
+  <!--Bootstrap Font awesome Semantic Ui-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    
+   {% block scripts%}
+    {% endblock %}
+</head>
+<body>
+  <header class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <ul>
+          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;The Noir Guide</a></li>
+        </ul>
+        <ul class="right">
+          <li><a href="/home">Write a Review</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    {% block content %}
+    {% endblock %}
+  </main>
+  <footer class="page-footer">
+    <div class="right">All Rights Reserved, &copy; 2021 The Noir Guide &nbsp;</div>
+  </footer>
+
+</body>
+</html>
