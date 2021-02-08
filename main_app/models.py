@@ -12,7 +12,7 @@ class Business(models.Model):
     state = models.CharField(max_length=30, blank=True)
     zipcode = models.CharField(max_length=5, blank=True)
     country = models.CharField(max_length=50, blank=True)
-    phone_number = models.IntegerField(max_length=22, blank=True )
+    phone_number = models.IntegerField(blank=True )
     description = models.TextField(max_length=1000)
     email = models.CharField(max_length=100)
     website = models.CharField(max_length= 100, blank=True)
