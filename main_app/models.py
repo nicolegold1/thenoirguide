@@ -73,6 +73,13 @@ class User(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    avatar = models.URLField(max_length=100)
+
+    def __str__(self):
+            return self.user.username
     
 
 
