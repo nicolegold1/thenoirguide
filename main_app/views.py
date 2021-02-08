@@ -5,11 +5,12 @@ from .models import Business
 # Create your views here.
 
 
-#===============home page =================
+#===============Home page =================
 def home(request):
     return render(request, 'home.html')
 
-#============= ==============
+#=============Business page ==============
+
 
 
 
