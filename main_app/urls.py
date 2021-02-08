@@ -5,6 +5,7 @@ urlpatterns = [
     #home routes
     path('', views.home, name='home'),
    
+   
  
    
 

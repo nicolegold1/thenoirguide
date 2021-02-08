@@ -27,7 +27,7 @@ class Business(models.Model):
 
 
 CATEGORY_LIST = [
-        ('REST', 'Restarant'),
+        ('REST', 'Restaurant'),
         ('HAIR', 'Hair Salon'),
         ('BARB', 'Barber Shop'),
         ('ESTH', 'Esthetician'),
@@ -63,6 +63,11 @@ class Review(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+
+
+
+
+
 
 
     
