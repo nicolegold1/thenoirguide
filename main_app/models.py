@@ -18,6 +18,7 @@ class Business(models.Model):
     email = models.CharField(max_length=100)
     website = models.CharField(max_length= 100, blank=True)
     category = models.CharField(max_length=15, default=[0][0])
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
     def __str__(self):
@@ -51,6 +52,7 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     business = models.ForeignKey(Business, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     #adding star rating with a template tag
 
 
@@ -60,6 +62,10 @@ class Review(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+
+
+    
+
 
 
 
