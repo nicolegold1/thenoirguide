@@ -17,6 +17,9 @@ class Business(models.Model):
     email = models.CharField(max_length=100)
     website = models.CharField(max_length= 100, blank=True)
 
+
+    def__str__(self):
+        return self.name
    
    
 
