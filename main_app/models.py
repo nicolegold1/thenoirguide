@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+
 # Create your models here.
 
 class Business(models.Model):
@@ -44,7 +45,16 @@ category_type = models.CharField(
     )
 
 
-    
+class Review(models.Model):
+    title = models.CharField(max_length=200)
+    review = models.TextField(max_length=700)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    business = models.ForeignKey(Business, on_delete=models.CASCADE)
+    #adding star rating with a template tag
+
+
+
 
 
 
