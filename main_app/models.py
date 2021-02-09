@@ -17,7 +17,7 @@ class Business(models.Model):
     description = models.TextField(max_length=700)
     email = models.CharField(max_length=100)
     website = models.CharField(max_length= 100, blank=True)
-    category = models.CharField(max_length=15, default=[0][0])
+    ''' category = models.ForeignKey(Categories, on_delete=models.CASCADE) '''
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
 
@@ -26,7 +26,7 @@ class Business(models.Model):
        return self.name
 
 
-CATEGORY_LIST = [
+CATEGORIES_LIST = [
         ('REST', 'Restaurant'),
         ('HAIR', 'Hair Salon'),
         ('BARB', 'Barber Shop'),
@@ -41,14 +41,15 @@ CATEGORY_LIST = [
         ('CLOT',  'Clothing')
  ]
 
-class Categories(models.model):
-    categories = models.Charfield(
+class Categories(models.Model):
+    business = models.ForeignKey(Business, on_delete=models.CASCADE)
+    categories = models.CharField(
         max_length=4,
-        choices=CATEGORIES,
-        default=CATEGORIES[0][0]
+        choices=CATEGORIES_LIST.choices
+        
     )
 
-    business = models.ForeignKey(Business, on_delete=models.CASCADE)
+   
 
 
 class Review(models.Model):
