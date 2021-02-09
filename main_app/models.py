@@ -41,11 +41,14 @@ CATEGORY_LIST = [
         ('CLOT',  'Clothing')
  ]
 
-category_type = models.CharField(
+class Catergories(models.model):
+    catergories = models.Charfield(
         max_length=4,
-        choices=CATEGORY_LIST,
-        default=CATEGORY_LIST[0][0]
+        choices=CATEGORIES,
+        default=CATEGORIES[0][0]
     )
+
+    business = models.ForeignKey(Business, on_delete=models.CASCADE)
 
 
 class Review(models.Model):

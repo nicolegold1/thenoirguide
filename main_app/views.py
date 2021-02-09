@@ -14,6 +14,12 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+def reviews_index(request):
+      return render(request, 'reviews/index.html', { 'reviews': reviews })
+
+def reviews_detail(request, review_id):
+    review = Review.objects.get(id=review_id)
+    context = {'review': review}
 
 
 
