@@ -1,0 +1,13 @@
+def cats_index(request):
+    if request.method == 'POST':
+        cat_form = Cat_Form(request.POST)
+        if cat_form.is_valid():
+            # Add the user from the request object before saving
+            new_cat = cat_form.save(commit=False)
+            new_cat.user = request.user
+            new_cat.save()
+            return redirect('cats_index')
+    cats = Cat.objects.all()
+    cat_form = Cat_Form()
+    context = {'cats': cats, 'cat_form': cat_form}
+    return render(request, 'cats/index.html', context)

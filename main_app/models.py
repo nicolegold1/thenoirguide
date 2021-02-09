@@ -37,7 +37,8 @@ CATEGORY_LIST = [
         ('LAWY', 'Lawyer'),
         ('EVEN', 'Event Planner'),
         ('REAL', 'REALTOR'),
-        ('SKIN',  'Skincare')
+        ('SKIN',  'Skincare'),
+        ('CLOT',  'Clothing')
  ]
 
 category_type = models.CharField(
@@ -64,15 +65,7 @@ class Review(models.Model):
     class Meta:
         ordering = ['-created_at']
 
-class User(models.Model):
-    username = models.CharField(max_length=40)
-    password = models.CharField(max_length=10)
-    email = models.CharField(max_length=100)
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.user.username
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
