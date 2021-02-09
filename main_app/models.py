@@ -41,8 +41,8 @@ CATEGORY_LIST = [
         ('CLOT',  'Clothing')
  ]
 
-class Catergories(models.model):
-    catergories = models.Charfield(
+class Categories(models.model):
+    categories = models.Charfield(
         max_length=4,
         choices=CATEGORIES,
         default=CATEGORIES[0][0]
