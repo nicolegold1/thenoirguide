@@ -7,18 +7,25 @@ from django.contrib.auth.models import User
 
 class Business(models.Model):
     name = models.CharField(max_length=50)
+
     address_1 = models.CharField(max_length=100, blank=True)
     address_2 = models.CharField(max_length=100, blank=True)
     city = models.CharField(max_length=60, blank=True)
     state = models.CharField(max_length=30, blank=True)
     zipcode = models.CharField(max_length=5, blank=True)
-    country = models.CharField(max_length=50, blank=True)
+    
+
     phone_number = models.CharField(max_length=22, blank=True )
     description = models.TextField(max_length=700)
     email = models.CharField(max_length=100)
     website = models.CharField(max_length= 100, blank=True)
-    ''' category = models.ForeignKey(Categories, on_delete=models.CASCADE) '''
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    verified= models.BooleanField(default=False)
+
+    # {% if verified == true%}
+    # <p>resource.name</p>
+    # {%endif%}
+    # details page
     
 
 
@@ -26,12 +33,12 @@ class Business(models.Model):
        return self.name
 
 
-CATEGORIES_LIST = [
+    BUSINESS_CATEGORIES = [
         ('REST', 'Restaurant'),
         ('HAIR', 'Hair Salon'),
         ('BARB', 'Barber Shop'),
         ('ESTH', 'Esthetician'),
-        ('NAIL'   'Nail Salon'),
+        ('NAIL',   'Nail Salon'),
         ('DERM', 'Dermatologist'),
         ('APPL', 'Appliance Repair'),
         ('LAWY', 'Lawyer'),
@@ -39,13 +46,13 @@ CATEGORIES_LIST = [
         ('REAL', 'REALTOR'),
         ('SKIN',  'Skincare'),
         ('CLOT',  'Clothing')
- ]
+    ]
 
-class Categories(models.Model):
-    business = models.ForeignKey(Business, on_delete=models.CASCADE)
-    categories = models.CharField(
+    business_type = models.CharField(
+    # business_list = models.ForeignKey(Business, on_delete=models.CASCADE)
         max_length=4,
-        choices=CATEGORIES_LIST.choices
+        choices=BUSINESS_CATEGORIES,
+        default=BUSINESS_CATEGORIES[0][0]
         
     )
 
@@ -71,12 +78,12 @@ class Review(models.Model):
 
 
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.URLField(max_length=100)
+# class Profile(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     avatar = models.URLField(max_length=100)
 
-    def __str__(self):
-            return self.user.username
+#     def __str__(self):
+#             return self.user.username
     
 
 
