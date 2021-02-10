@@ -1,11 +1,12 @@
 {% extends 'base.html' %} 
 {% block content %}
-<h1>Business Detail</h1>
-{% comment %} {% comment %} {% for business in business %}% endcomment %}
+
+ <h1>Business Detail</h1>
+{% for business in business %}
 {% if business.verified == True%}
 <div class="row">
 {% comment %} Cat Card {% endcomment %}
-  {% comment %} <div class="col s6">
+   <div class="col s6">
     <div class="card">
       <div class="card-content">
       <span class="card-name">{{ business.name }}</span>
@@ -19,19 +20,19 @@
       <p>Description: {{ business.description }}</p>
       <p>Email: {{ business.email }}</p>
       <p>Website: {{ business.website }}</p>
-      <p>verified: {{business.verified}}</p> {% endcomment %}
+      <p>verified: {{business.verified}}</p> 
       {% comment %} {% else %} {% endcomment %}
         {% comment %} <p>business.verified == false</p> {% endcomment %}
-      {% comment %} {% endif %} {% endcomment %}
-    {% comment %} </div> 
-    </div> {% endcomment %}
+       {% endif %} 
+     </div> 
+    {% comment %} </div>  {% endcomment %}
 {% comment %} 
       <div class="card-action">
         <a href="{% url 'business_edit' business.id %}" class="btn blue">Edit</a>
         <a href="{% url 'business_delete' business.id %}" class="btn red">Delete</a>
-      </div> {% endcomment %}
+      </div> 
 
     {% comment %} </div> {% endcomment %}
-  {% comment %} </div> {% endcomment %}
-  {% comment %} {% endfor %}  {% endcomment %}
+   {% comment %} </div>  {% endcomment %}
+{% endfor %}  
 {% endblock%}

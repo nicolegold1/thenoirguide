@@ -23,7 +23,7 @@ def business_index(request):
 
 
 def business_detail(request, business_id):
-    business = Business.objects.get(id=business_id)
+    business = Business.objects.filter(id=business_id)
     context = {'business': business}
     return render(request, 'business/detail.html', context)
 
