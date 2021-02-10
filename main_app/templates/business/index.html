@@ -2,10 +2,11 @@
 {% block content %}
 
 <h1>Business list</h1>
-{% for business in businesss %}
+{% for business in business %}
+  {% if business.verified == True%}
   <div class="card">
     <div class="card-content">
-  {% comment %} <a href="{% url 'detail' business.id %}"> {% endcomment %}
+  {% comment %} <a href="{% url 'business_detail' business.id=business.id %}"> {% endcomment %}
     <div class="card-content">
       <span class="card-name">{{ business.name }}</span>
       <p>Address_1: {{ business.address_1 }}</p>
@@ -19,14 +20,20 @@
       <p>Email: {{ business.email }}</p>
       <p>Website: {{ business.website }}</p>
       <p>verified: {{business.verified}}</p>
-      {% if business.verified == true%}
-        <p>{{ business.verified }}</p>
-      {% else %}
-        <p>business.verified == false</p>
+      {% comment %} {% else %} {% endcomment %}
+        {% comment %} <p>business.verified == false</p> {% endcomment %}
       {% endif %}
     </div>
-  <!-- and this following one as well -->
-  {% comment %} </a> {% endcomment %}
+    {% comment %} <div class="col s3">
+    <form action="{% url 'business_index' %}" method="POST">
+    
+        {% csrf_token %}
+        {{ business_form.as_p }}
+        <input class="btn" type="submit" value="Add Business">
+
+    </form>
+  </div>
+  </a> {% endcomment %}
 </div>
 {% endfor %}
 {% endblock%}
