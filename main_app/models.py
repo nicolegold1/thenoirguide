@@ -22,7 +22,7 @@ class Business(models.Model):
    
     # user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     verified= models.BooleanField(default=False)
-    # reviews = models.ManyToManyField(Review)
+    # review = models.ManyToManyField(Review)
 
     # {% if verified == true%}
     # <p>resource.name</p>
@@ -81,12 +81,12 @@ class Review(models.Model):
 
 
 
-# class Profile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     avatar = models.URLField(max_length=100)
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    review = models.CharField(max_length=700)
 
-#     def __str__(self):
-#             return self.user.username
+    def __str__(self):
+        return f"{self.user}"
     
 
 
