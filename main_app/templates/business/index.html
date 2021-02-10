@@ -6,7 +6,7 @@
   {% if business.verified == True%}
   <div class="card">
     <div class="card-content">
-  {% comment %} <a href="{% url 'business_detail' business.id=business.id %}"> {% endcomment %}
+  <a href="{% url 'business_detail' business.id%}">
     <div class="card-content">
       <span class="card-name">{{ business.name }}</span>
       <p>Address_1: {{ business.address_1 }}</p>
