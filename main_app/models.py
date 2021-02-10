@@ -60,11 +60,12 @@ class Business(models.Model):
 
 
 class Review(models.Model):
+    business = models.ForeignKey(Business, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     review = models.TextField(max_length=700)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    business = models.ForeignKey(Business, on_delete=models.CASCADE)
+   
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     #adding star rating with a template tag
 

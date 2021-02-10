@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Business list</h1>
+{% for business in businesss %}
+  <div class="card">
+    <div class="card-content">
+  {% comment %} <a href="{% url 'detail' business.id %}"> {% endcomment %}
+    <div class="card-content">
+      <span class="card-name">{{ business.name }}</span>
+      <p>Address_1: {{ business.address_1 }}</p>
+      <p>Address_2: {{ business.address_2 }}</p>
+      <p>City: {{ business.city }}</p>
+      <p>State: {{ business.state}}</p>
+      <p>Zipcode: {{ business.zipcode}}</p>
+      <p>State: {{ business.state}}</p>
+      <p>Phone_number: {{ business.state}}</p>
+      <p>Description: {{ business.description }}</p>
+      <p>Email: {{ business.email }}</p>
+      <p>Website: {{ business.website }}</p>
+      <p>verified: {{business.verified}}</p>
+      {% if business.verified == true%}
+        <p>{{ business.verified }}</p>
+      {% else %}
+        <p>business.verified == false</p>
+      {% endif %}
+    </div>
+  <!-- and this following one as well -->
+  {% comment %} </a> {% endcomment %}
+</div>
+{% endfor %}
+{% endblock%}
+
+
+
