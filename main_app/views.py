@@ -21,15 +21,11 @@ def business_index(request):
     context = {'business': business}
     return render(request, 'business/index.html', context)
 
-    # def cats_index(request):
-    #   return render(request, 'cats/index.html', { 'cats': cats })
-    
 
-    #   return render(request, 'reviews/index.html', { 'reviews': reviews })
-
-# def reviews_detail(request, review_id):
-#     review = Review.objects.get(id=review_id)
-#     context = {'review': review}
+def business_detail(request, business_id):
+    business = Business.objects.get(id=business_id)
+    context = {'business': business}
+    return render(request, 'business/detail.html', context)
 
 
 

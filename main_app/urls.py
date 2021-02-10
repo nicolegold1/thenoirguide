@@ -5,8 +5,8 @@ urlpatterns = [
     #home routes
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
-    path('business/', views.business_index, name='index')
-    # path('reviews/<int:reviews_id>/', views.reviews_detail, name='detail'),
+    path('business/', views.business_index, name='business_index'),
+    path('business/<int:business_id>/', views.business_detail, name='detail'),
     
   
     

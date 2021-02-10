@@ -1,26 +1,37 @@
-{% extends 'base.html' %} {% block content %}
-
-<h1>Cat Detail</h1>
-
+{% extends 'base.html' %} 
+{% block content %}
+<h1>Business Detail</h1>
+{% comment %} {% comment %} {% for business in business %}% endcomment %}
+{% if business.verified == True%}
 <div class="row">
 {% comment %} Cat Card {% endcomment %}
-  <div class="col s6">
+  {% comment %} <div class="col s6">
     <div class="card">
       <div class="card-content">
-        <span class="card-title">{{ cat.name }}</span>
-        <p>Breed: {{ cat.breed }}</p>
-        <p>Description: {{ cat.description }}</p>
-        {% if cat.age > 0 %}
-        <p>Age: {{ cat.age }}</p>
-        {% else %}
-        <p>Age: Kitten</p>
-        {% endif %}
-      </div>
+      <span class="card-name">{{ business.name }}</span>
+      <p>Address_1: {{ business.address_1 }}</p>
+      <p>Address_2: {{ business.address_2 }}</p>
+      <p>City: {{ business.city }}</p>
+      <p>State: {{ business.state}}</p>
+      <p>Zipcode: {{ business.zipcode}}</p>
+      <p>State: {{ business.state}}</p>
+      <p>Phone_number: {{ business.state}}</p>
+      <p>Description: {{ business.description }}</p>
+      <p>Email: {{ business.email }}</p>
+      <p>Website: {{ business.website }}</p>
+      <p>verified: {{business.verified}}</p> {% endcomment %}
+      {% comment %} {% else %} {% endcomment %}
+        {% comment %} <p>business.verified == false</p> {% endcomment %}
+      {% comment %} {% endif %} {% endcomment %}
+    {% comment %} </div> 
+    </div> {% endcomment %}
 {% comment %} 
       <div class="card-action">
-        <a href="{% url 'cats_edit' cat.id %}" class="btn blue">Edit</a>
-        <a href="{% url 'cats_delete' cat.id %}" class="btn red">Delete</a>
+        <a href="{% url 'business_edit' business.id %}" class="btn blue">Edit</a>
+        <a href="{% url 'business_delete' business.id %}" class="btn red">Delete</a>
       </div> {% endcomment %}
 
-    </div>
-  </div>
+    {% comment %} </div> {% endcomment %}
+  {% comment %} </div> {% endcomment %}
+  {% comment %} {% endfor %}  {% endcomment %}
+{% endblock%}
