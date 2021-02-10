@@ -1,13 +1,26 @@
 from django.forms import ModelForm
-from .models import Business, business_types
+from .models import Business
+from .models import Review
 
 class Business_Form(ModelForm):
     class Meta:
       model = Business 
       labels = {'name': "Business Name"}
-      fields = ['name','breed','description', 'age']
+      fields = ['name','address_1', 'address_2', 'city','state', 'zipcode', 'phone_number',
+      'description', 'email', 'website']
 
-class Business_type_Form(ModelForm): 
+class Review_Form(ModelForm): 
     class Meta: 
-      model = Feeding 
-      fields = ['date', 'meal']
+      model = Review
+      fields = ['business', 'review', 'user']
+
+
+
+
+
+
+
+
+
+
+

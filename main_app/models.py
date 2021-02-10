@@ -45,7 +45,7 @@ class Business(models.Model):
         ('APPL', 'Appliance Repair'),
         ('LAWY', 'Lawyer'),
         ('EVEN', 'Event Planner'),
-        ('REAL', 'REALTOR'),
+        ('REAL', 'Realtor'),
         ('SKIN',  'Skincare'),
         ('CLOT',  'Clothing')
     ]

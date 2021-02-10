@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 
 from .models import Business
+from .forms import Business_Form
 
 # Create your views here.
 
@@ -17,6 +18,11 @@ def about(request):
     return render(request, 'about.html')
 
 def business_index(request):
+    if request.method == 'POST':
+        business_form = Business_Form(request.POST)
+        if business_form.is_valid():
+            new_business = business_form.save()
+            return redirect('business_index')
     business = Business.objects.all()
     context = {'business': business}
     return render(request, 'business/index.html', context)
