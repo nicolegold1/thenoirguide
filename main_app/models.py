@@ -19,8 +19,10 @@ class Business(models.Model):
     description = models.TextField(max_length=700)
     email = models.CharField(max_length=100)
     website = models.CharField(max_length= 100, blank=True)
+   
     # user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     verified= models.BooleanField(default=False)
+    # reviews = models.ManyToManyField(Review)
 
     # {% if verified == true%}
     # <p>resource.name</p>
@@ -49,7 +51,7 @@ class Business(models.Model):
     ]
 
     business_type = models.CharField(
-    # business_list = models.ForeignKey(Business, on_delete=models.CASCADE)
+    # business_categories = models.ForeignKey(Business, on_delete=models.CASCADE)
         max_length=4,
         choices=BUSINESS_CATEGORIES,
         default=BUSINESS_CATEGORIES[0][0]
@@ -60,7 +62,7 @@ class Business(models.Model):
 
 
 class Review(models.Model):
-    business = models.ForeignKey(Business, on_delete=models.CASCADE)
+    business = models.ManyToManyField(Business)
     title = models.CharField(max_length=200)
     review = models.TextField(max_length=700)
     created_at = models.DateTimeField(auto_now_add=True)
