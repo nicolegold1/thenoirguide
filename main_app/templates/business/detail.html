@@ -25,14 +25,36 @@
         {% comment %} <p>business.verified == false</p> {% endcomment %}
        {% endif %} 
      </div> 
-    {% comment %} </div>  {% endcomment %}
-{% comment %} 
+     </div>  
+
       <div class="card-action">
-        <a href="{% url 'business_edit' business.id %}" class="btn blue">Edit</a>
-        <a href="{% url 'business_delete' business.id %}" class="btn red">Delete</a>
+        <a href="{% url 'review_edit' business.id %}" class="btn blue">Edit a review</a>
+        <a href="{% url 'review_delete' business.id %}" class="btn red">write a review</a>
       </div> 
 
-    {% comment %} </div> {% endcomment %}
-   {% comment %} </div>  {% endcomment %}
-{% endfor %}  
+     </div> 
+    </div>  
+{% endfor %}
+<div class="row"
+<h1>Reviews </h1>
+{% for review in reviews %}
+
+  <div class="card">
+    <div class="card-content">
+  
+    <div class="card-content">
+      
+      <p>Business: {{ review.business }}</p>
+      <p>title: {{ review.title }}</p>
+      <p>Review: {{ review.review }}</p>
+      <p>created_at: {{review.created_at}}</p>
+      <p>updated_at: {{review.updated_at}}</p>
+      
+    </div>
+     <div class="col s3">
+    
+  </div>
+  </a> 
+</div>
+{% endfor %}
 {% endblock%}

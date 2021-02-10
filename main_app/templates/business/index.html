@@ -28,7 +28,7 @@
     <form action="{% url 'business_index' %}" method="POST">
     
         {% csrf_token %}
-        {{ business_form.as_p }}
+        {{ review_form.as_p }}
         <input class="btn" type="submit" value="Write a Review">
 
     </form>
