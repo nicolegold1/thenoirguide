@@ -17,6 +17,15 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;The Noir Guide</a></li>
         </ul>
         <ul class="right">
+         <li><a href="{% url 'about' %}">About</a></li>
+         {% if user.is_authenticated %}
+    <li><a href="{% url 'business_index' %}">View All Reviews</a></li>
+    <li><a href="{% url 'logout' %}">Log Out</a></li>
+  {% else %}
+    <li><a href="{% url 'login' %}">Log In</a></li>
+  {% endif %}
+</ul>
+  
           <li><a href="/about">About</a></li>
           <li><a href="/reviews">Write a reviews</a></li>
         </ul>
