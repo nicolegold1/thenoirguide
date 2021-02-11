@@ -10,6 +10,7 @@ urlpatterns = [
     path('review/review_create/<int:business_id>/', views.review_create, name='review_create'),
     path('review/<int:review_id>/edit/', views.review_edit, name='review_edit'),
     path('review/<int:review_id>/delete/', views.review_delete, name='review_delete'),
+    path('accounts/signup', views.signup, name='signup'),
     
   
     
