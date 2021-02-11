@@ -19,6 +19,9 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+
+#=============Business page ==============
+
 def business_index(request):
     if request.method == 'POST':
         business_form = Business_Form(request.POST)
@@ -35,6 +38,9 @@ def business_detail(request, business_id):
     reviews = Review.objects.filter(business_id=business_id)
     context = {'business': business,'reviews': reviews}
     return render(request, 'business/detail.html', context)
+
+
+#=============Review page ==============
 
 def review_index(request):
     if request.method == 'POST':
@@ -97,14 +103,12 @@ def review_create(request, business_id):
 
 
 
-#=============Review page ==============
 
 
  
 
 
 
-#============Review page =================
 
 
 
