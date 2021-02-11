@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 
@@ -51,13 +51,13 @@ def review_index(request):
     return render(request, 'review/index.html', context)
 
 
-def review_edit(request, review_id):
+def review_edit(request, review_id ):
     review = Review.objects.get(id=review_id)
     if request.method == 'POST':
         review_form = Review_Form(request.POST, instance=review)
         if review_form.is_valid(): 
             review_form.save()
-            return redirect('business_detail', review_id=review.id)
+            return redirect('business_index')
 
     review_form = Review_Form(instance=review)
     context = {'review_form': review_form, 'review': review}
