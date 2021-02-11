@@ -13,7 +13,7 @@ class Business_Form(ModelForm):
 class Review_Form(ModelForm): 
     class Meta: 
       model = Review
-      fields = ['business', 'review', 'user']
+      fields = ['title' ,'review' ]
 
 
        

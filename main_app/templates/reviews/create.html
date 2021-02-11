@@ -1,30 +1,19 @@
 {% extends 'base.html' %} 
 {% block content %}
 
- <h1>Review Detail</h1>
-{% for review in reviews %}
+ <h1>Create a Review</h1>
+
 <div class="row">
-{% comment %} Cat Card {% endcomment %}
-   <div class="col s6">
-    <div class="card">
-      <div class="card-content">
-      <span class="card-name">{{ review.name }}</span>
-      <p>Business: {{ review.business}}</p>
-      <p>:Review {{ review.review}}</p>
-      <p>User: {{ review.user }}</p>
-      
-        {% comment %} <p>business.verified == false</p> {% endcomment %}
-       {% comment %} {% endif %}  {% endcomment %}
-     </div> 
-     </div>  
 
-      <div class="card-action">
-        <a href="{% url 'review_edit' review.id %}" class="btn blue">Edit a review</a>
-        <a href="{% url 'review_create' review.id %}" class="btn red">Write a review</a>
-        <a href="{% url 'review_delete' review.id %}" class="btn red">Delete</a>
-      </div> 
 
-     </div> 
+
+<form action="{% url 'review_create' business_id%}" method="POST">
+    
+        {% csrf_token %}
+        {{ review_form.as_p }}
+        <input class="btn" type="submit" value="Write a Review">
+
+</form>
     </div>  
-{% endfor %}
+
 {% endblock %}
