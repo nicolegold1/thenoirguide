@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 
 
 from .models import Business
@@ -20,7 +22,7 @@ def about(request):
     return render(request, 'about.html')
 
 
-#=============Business page ==============
+#=============Business Routes ==============
 
 def business_index(request):
     if request.method == 'POST':
@@ -40,7 +42,7 @@ def business_detail(request, business_id):
     return render(request, 'business/detail.html', context)
 
 
-#=============Review page ==============
+#=============Review Routes==============
 
 def review_index(request):
     if request.method == 'POST':
@@ -94,6 +96,21 @@ def review_create(request, business_id):
         current_user = request.user
         context = {'review_form': review_form ,'current_user': current_user, 'business_id': business_id}
         return render(request, 'reviews/create.html', context)
+
+#=============Signup Route ==============
+def signup(request):
+      error_message = ''
+  if request.method == 'POST':
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      user = form.save()
+      login(request, user)
+      return redirect('reviews_index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)
 
     
 
