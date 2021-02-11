@@ -1,0 +1,29 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+ <h1>Review Detail</h1>
+{% for review in reviews %}
+<div class="row">
+{% comment %} Cat Card {% endcomment %}
+   <div class="col s6">
+    <div class="card">
+      <div class="card-content">
+      <span class="card-name">{{ review.name }}</span>
+      <p>Business: {{ review.business}}</p>
+      <p>:Review {{ review.review}}</p>
+      <p>User: {{ review.user }}</p>
+      {% else %}
+        {% comment %} <p>business.verified == false</p> {% endcomment %}
+       {% comment %} {% endif %}  {% endcomment %}
+     </div> 
+     </div>  
+
+      <div class="card-action">
+        <a href="{% url 'review_edit' business.id %}" class="btn blue">Edit a review</a>
+        <a href="{% url 'review_delete' business.id %}" class="btn red">write a review</a>
+      </div> 
+
+     </div> 
+    </div>  
+{% endfor %}
+{% endblock %}

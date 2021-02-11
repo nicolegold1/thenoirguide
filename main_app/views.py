@@ -57,7 +57,7 @@ def review_edit(request, review_id):
         review_form = Review_Form(request.POST, instance=review)
         if review_form.is_valid(): 
             review_form.save()
-            return redirect(request,'review_edit', review_id=review.id)
+            return redirect('business_detail', review_id=review.id)
 
     review_form = Review_Form(instance=review)
     context = {'review_form': review_form, 'review': review}
@@ -66,6 +66,18 @@ def review_edit(request, review_id):
 def review_delete(request, review_id):
     Review.objects.get(id=review_id).delete()
     return redirect('business_index')
+
+def review_create(request):
+    if req.method == 'POST':
+        review_form = Review_Form(request.POST)
+        if review_form.is_valid():
+            new_review = review_form.save(commit=False)
+            new_review.user= request.user
+            new_review.save()
+            return redirect(request.get_full_path())
+    context = {'review': review, 'review_create': review_create}
+    return render(request, 'business_index.html', context)
+    
 
 
 
