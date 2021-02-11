@@ -24,10 +24,7 @@ class Business(models.Model):
     verified= models.BooleanField(default=False)
     # review = models.ManyToManyField(Review)
 
-    # {% if verified == true%}
-    # <p>resource.name</p>
-    # {%endif%}
-    # details page
+    
     
 
 
