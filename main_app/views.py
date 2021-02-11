@@ -8,6 +8,7 @@ from .models import Business
 from .forms import Business_Form
 from .models import Review
 from .forms import Review_Form
+from .forms import Signup_Form
 
 # Create your views here.
 
@@ -98,14 +99,16 @@ def review_create(request, business_id):
         return render(request, 'reviews/create.html', context)
 
 #=============Signup Route ==============
+
+
 def signup(request):
-      error_message = ''
+  error_message = ''
   if request.method == 'POST':
-    form = UserCreationForm(request.POST)
+    form =UserCreationForm(request.POST)
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('reviews_index')
+      return redirect('business_index')
     else:
       error_message = 'Invalid sign up - try again'
   form = UserCreationForm()
