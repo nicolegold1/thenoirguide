@@ -12,15 +12,16 @@
       <p>Business: {{ review.business}}</p>
       <p>:Review {{ review.review}}</p>
       <p>User: {{ review.user }}</p>
-      {% else %}
+      
         {% comment %} <p>business.verified == false</p> {% endcomment %}
        {% comment %} {% endif %}  {% endcomment %}
      </div> 
      </div>  
 
       <div class="card-action">
-        <a href="{% url 'review_edit' business.id %}" class="btn blue">Edit a review</a>
-        <a href="{% url 'review_delete' business.id %}" class="btn red">write a review</a>
+        <a href="{% url 'review_edit' review.id %}" class="btn blue">Edit a review</a>
+        <a href="{% url 'review_create' review.id %}" class="btn red">Write a review</a>
+        <a href="{% url 'review_delete' review.id %}" class="btn red">Delete</a>
       </div> 
 
      </div> 

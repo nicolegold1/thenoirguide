@@ -67,16 +67,28 @@ def review_delete(request, review_id):
     Review.objects.get(id=review_id).delete()
     return redirect('business_index')
 
-def review_create(request):
-    if req.method == 'POST':
-        review_form = Review_Form(request.POST)
-        if review_form.is_valid():
-            new_review = review_form.save(commit=False)
-            new_review.user= request.user
-            new_review.save()
-            return redirect(request.get_full_path())
-    context = {'review': review, 'review_create': review_create}
-    return render(request, 'business_index.html', context)
+def review_create(request, business_id):
+    # if request.method == 'POST':
+    #     review_form = Review_Form(request.POST)
+    #     if review_form.is_valid():
+    #         author = request.user 
+    #         review = Review 
+    #         review = review_form.save(commit=False)
+    #         review.user = author 
+    #         review.save()
+    #         return redirect('business_index')
+    #     current_user = request.user
+    #     context = {'review_form': review_form ,'current_user': current_user}
+    #     return render(request, 'business_index.html', context)
+    # else:
+    return render(request, 'reviews/create.html')
+
+    #         new_review = review_form.save(commit=False)
+    #         new_review.user= request.user
+    #         new_review.save()
+    #         return redirect(request.get_full_path())
+    # context = {'new_review': new_review}
+    # return render(request, 'business_index.html', context)
     
 
 
