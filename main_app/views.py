@@ -18,7 +18,7 @@ from .forms import Signup_Form
 
 
 def home(request):
-    return HttpResponse('<h1> The Noir Guide</h1>')
+    return render(request,'home.html')
 
 def about(request):
     return render(request, 'about.html')

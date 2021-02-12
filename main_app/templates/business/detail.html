@@ -1,4 +1,5 @@
 {% extends 'base.html' %} 
+{% load static %}
 {% block content %}
 
  <h1>Business Detail</h1>
@@ -21,8 +22,7 @@
       <p>Email: {{ business.email }}</p>
       <p>Website: {{ business.website }}</p>
       <p>verified: {{business.verified}}</p> 
-      {% comment %} {% else %} {% endcomment %}
-        {% comment %} <p>business.verified == false</p> {% endcomment %}
+      
        {% endif %} 
      </div> 
      </div>  
