@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 
 from .models import Business
@@ -44,7 +45,7 @@ def business_detail(request, business_id):
 
 
 #=============Review Routes==============
-
+@login_required
 def review_index(request):
     if request.method == 'POST':
         review_form = Review_Form(request.POST)
@@ -59,7 +60,7 @@ def review_index(request):
     context = {'review': review, 'review_form': review_form}
     return render(request, 'review/index.html', context)
 
-
+@login_required
 def review_edit(request, review_id ):
     review = Review.objects.get(id=review_id)
     if request.method == 'POST':
@@ -72,10 +73,12 @@ def review_edit(request, review_id ):
     context = {'review_form': review_form, 'review': review}
     return render(request,'reviews/edit.html', context)
 
+@login_required
 def review_delete(request, review_id):
     Review.objects.get(id=review_id).delete()
     return redirect('business_index')
 
+@login_required
 def review_create(request, business_id):
     if request.method == 'POST':
         review_form = Review_Form(request.POST)
