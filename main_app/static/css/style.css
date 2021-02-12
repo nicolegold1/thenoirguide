@@ -13,7 +13,7 @@ body {
   }
   
   footer {
-    padding-top: 0;
+    padding-top: 50;
     text-align: right;
   }
 
@@ -29,7 +29,14 @@ body {
       
   }
 
-  $(document).ready(function(){
+ 
+.pine {
+    float:center;
+}
+  
+
+
+  
  
   
  
