@@ -26,11 +26,7 @@ body {
   }
   .page-footer {
       background-color: black;
+      
   }
-  hr {
-    webkit-box-sizing: hidden;
-    box-sizing: content-box;
-    height: 0;
-    overflow: hidden;
- }
+ 
  
