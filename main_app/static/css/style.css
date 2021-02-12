@@ -1,5 +1,5 @@
 body {
-    background-color: white;
+    background-image: url(https://imgur.com/9GnOuBW.jpg);
   }
   body {
     display: flex;
@@ -14,4 +14,15 @@ body {
   footer {
     padding-top: 0;
     text-align: right;
+  }
+
+
+ 
+  .nav-wrapper {
+    background-color: black !important;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .page-footer {
+      background-color: black;
   }
