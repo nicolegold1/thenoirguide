@@ -8,7 +8,7 @@
 <form action="{% url 'review_edit' review.id %}" method="POST">
     {% csrf_token %}
     {{ review_form.as_p }}
-    <input class="btn" type="submit" value="Edit Review">
+    <input class="btn black" type="submit" value="Edit Review">
 </form>
 
 {% endblock %}

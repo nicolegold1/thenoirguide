@@ -18,13 +18,21 @@ class Review_Form(ModelForm):
       model = Review
       fields = ['title' ,'review' ]
 
+# class Signup_Form(UserCreationForm):
+#     email = forms.EmailField(label='Email')
+#     first_name = forms.CharField(label='First Name')
+#     last_name = forms.CharField(label= 'Last Name')
+#     class Meta:
+#       model = User
+#       fields = ['email', 'first_name', 'last_name']
+
 class Signup_Form(UserCreationForm):
-    email = forms.EmailField(label='Email')
-    first_name = forms.CharField(label='First Name')
-    last_name = forms.CharField(label= 'Last Name')
-    class Meta:
-      model = User
-      fields = ['email', 'first_name', 'last_name']
+    email = forms.EmailField(widget=forms.EmailInput(
+        attrs={'class': 'form-control'}))
+    first_name = forms.CharField(max_length=20, widget=forms.TextInput(
+        attrs={'class': 'form-control'}))
+    last_name = forms.CharField(max_length=20, widget=forms.TextInput(
+        attrs={'class': 'form-control'}))
 
         
 
