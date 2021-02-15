@@ -1,7 +1,7 @@
 body {
     background-image: url(https://imgur.com/9GnOuBW.jpg);
-    background-repeat: no-repeat;
-    background-size: auto;
+    background-repeat: repeat;
+    
     
 }
   body {
@@ -23,8 +23,9 @@ body {
  
   .nav-wrapper {
     background-color: black !important;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 16px ;
+    font-weight: AHeavy;
+    font-family: helvetical Neue, sans-serif;
   }
   .page-footer {
       background-color: black;
@@ -36,8 +37,14 @@ body {
     float:center;
 }
   
+/* .id_username {
+    color: black;
+} */
 
-
+label {
+    color: black;
+    
+}
   
  
   
