@@ -4,27 +4,19 @@
 
 // full stack application- python and django, 
 
-// css - materialize , will also have an my own logo and will a outside website w, still choosing which one to use.
+// css - materialize , will also have an my own logo
 
 // When the user open the website they will have options on the navigation bar that will allow
 
-// them to login, sign up, write a review or add a business. All modules/pages will have a link to the homepage and logout button as well as 
+// them to login, sign up.  
 
-// write a review and add business.
+// If they click on the write a review it will link them directly to a business page that they can make a review.
 
-// If they click on the write a review or add a business button it will redirect them  to the log in page. 
+//If there will be a selection of busniness in newyork. Mainly restaurants.
 
-// where that page will have a form that they will fill out a form with their email and passowrd. If they do not have a login there will be a button 
+// A list will populate for the business that will have the name , the name, address, phone number
 
-// that they can choose to sign up that will redirect to the sign up page. On that page they will have to fil or a form.
-
-// that they wil have to input their First Name, Last Name, Email Address, and a Password.
-
-//If there will be a selection of at least four different industries and four different cities.
-
-// A list will populate for the business that will have an image from the business, the name, address( if there is one)
-
-//phone number, email and social media handles they that information is available. 
+//phone number, email and website.
 
 // Once they sign up then will then  be redirected to the home page.
 

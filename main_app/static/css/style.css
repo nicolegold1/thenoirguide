@@ -1,5 +1,7 @@
 body {
     background-image: url(https://imgur.com/9GnOuBW.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
     
 }
   body {
