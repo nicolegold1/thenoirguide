@@ -1,1 +1,1 @@
-web: gunicorn thenoirguide_project.wsgi
+web: gunicorn TheNoirGuide_project.wsgi
