@@ -1,1 +1,1 @@
-web: gunicorn thenoirguide.wsgi
+web: gunicorn thenoirguide_project.wsgi
